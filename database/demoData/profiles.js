@@ -62,7 +62,7 @@ var demoProfile1 = {
   [
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'1',
@@ -70,7 +70,7 @@ var demoProfile1 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'3',
@@ -78,7 +78,7 @@ var demoProfile1 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'5',
@@ -151,7 +151,7 @@ var demoProfile2 = {
   [
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'1',
@@ -159,7 +159,7 @@ var demoProfile2 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'3',
@@ -167,7 +167,7 @@ var demoProfile2 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'5',
@@ -240,7 +240,7 @@ var demoProfile3 = {
   [
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'1',
@@ -248,7 +248,7 @@ var demoProfile3 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'3',
@@ -256,7 +256,7 @@ var demoProfile3 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'5',
@@ -329,7 +329,7 @@ var demoProfile4 = {
   [
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'1',
@@ -337,7 +337,7 @@ var demoProfile4 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'3',
@@ -345,7 +345,7 @@ var demoProfile4 = {
     },
     {
       createdAt:'20/20/20',
-      status:'bookmarked',
+      status:'applied',
       type:'Semester Exchange',
       college:'College Name',
       postId:'5',
@@ -353,6 +353,8 @@ var demoProfile4 = {
     },
   ]
 }
+
+
 
 const demoProfiles = [demoProfile1,demoProfile2,demoProfile3,demoProfile4]
 
