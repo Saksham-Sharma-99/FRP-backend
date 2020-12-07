@@ -17,13 +17,15 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/projects',(req,res)=>{
-  console.log(req)
-  res.send("Projects")
+  DataHandler.demoProjects((projects)=>{
+    console.log(req.headers.origin,'asked for projects')
+    res.send(projects)
+  })
 })
 
 app.get('/userDetails',(req,res)=>{
   DataHandler.demoUser(req.query.userId,(user)=>{
-    console.log(req.url,'asked for user',req.query.userId)
+    console.log(req.headers.origin,'asked for user',req.query.userId)
     res.send(user)
   })
 

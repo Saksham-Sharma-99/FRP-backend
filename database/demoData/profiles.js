@@ -1,19 +1,33 @@
 var demoProfile1 = {
   applications :
   {
-    bookmarked : ['1','3','5',],
-    applied : ['1','4']
+    applied : ['1','3','5',],
+    bookmarked : ['2','4']
   },
   personalData :
   {
     userId:1,
     resumeDetails : {},
-    docs : {}
+    docs : {},
+    acadDetails :{
+      name:"Studen 1",
+      enrollmentNr : "88888888",
+      branch : "branch1",
+      year :"2nd",
+      sem:"3rd",
+      cg:"7",
+    },
+    personalDetails:{
+      dob:"20/20/20",
+      email:"1@abc.com",
+      number:"9999999999"
+    }
   },
   notifs:
   [
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -21,6 +35,7 @@ var demoProfile1 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -28,6 +43,7 @@ var demoProfile1 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -35,6 +51,7 @@ var demoProfile1 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -45,26 +62,26 @@ var demoProfile1 = {
   [
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'1',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'3',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'5',
       numOfApp : ['1','2','3','4']
     },
   ]
@@ -73,19 +90,33 @@ var demoProfile1 = {
 var demoProfile2 = {
   applications :
   {
-    bookmarked : ['1','3','5',],
-    applied : ['1','4']
+    applied : ['1','3','5',],
+    bookmarked : ['2','4']
   },
   personalData :
   {
     userId:2,
     resumeDetails : {},
-    docs : {}
+    docs : {},
+    acadDetails :{
+      name:"Studen 2",
+      enrollmentNr : "88888888",
+      branch : "branch2",
+      year :"2nd",
+      sem:"3rd",
+      cg:"7",
+    },
+    personalDetails:{
+      dob:"20/20/20",
+      email:"2@abc.com",
+      number:"9999999999"
+    }
   },
   notifs:
   [
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -93,6 +124,7 @@ var demoProfile2 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -100,6 +132,7 @@ var demoProfile2 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -107,6 +140,7 @@ var demoProfile2 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -117,26 +151,26 @@ var demoProfile2 = {
   [
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'1',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'3',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'5',
       numOfApp : ['1','2','3','4']
     },
   ]
@@ -145,19 +179,33 @@ var demoProfile2 = {
 var demoProfile3 = {
   applications :
   {
-    bookmarked : ['1','3','5',],
-    applied : ['1','4']
+    applied : ['1','3','5',],
+    bookmarked : ['2','4']
   },
   personalData :
   {
     userId:3,
     resumeDetails : {},
-    docs : {}
+    docs : {},
+    acadDetails :{
+      name:"Studen 3",
+      enrollmentNr : "88888888",
+      branch : "branch3",
+      year :"2nd",
+      sem:"3rd",
+      cg:"7",
+    },
+    personalDetails:{
+      dob:"20/20/20",
+      email:"3@abc.com",
+      number:"9999999999"
+    }
   },
   notifs:
   [
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -165,6 +213,7 @@ var demoProfile3 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -172,6 +221,7 @@ var demoProfile3 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -179,6 +229,7 @@ var demoProfile3 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -189,26 +240,26 @@ var demoProfile3 = {
   [
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'1',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'3',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'5',
       numOfApp : ['1','2','3','4']
     },
   ]
@@ -217,19 +268,33 @@ var demoProfile3 = {
 var demoProfile4 = {
   applications :
   {
-    bookmarked : ['1','3','5',],
-    applied : ['1','4']
+    applied : ['1','3','5',],
+    bookmarked : ['2','4']
   },
   personalData :
   {
     userId:4,
     resumeDetails : {},
-    docs : {}
+    docs : {},
+    acadDetails :{
+      name:"Studen 4",
+      enrollmentNr : "88888888",
+      branch : "branch4",
+      year :"2nd",
+      sem:"3rd",
+      cg:"7",
+    },
+    personalDetails:{
+      dob:"20/20/20",
+      email:"4@abc.com",
+      number:"9999999999"
+    }
   },
   notifs:
   [
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -237,6 +302,7 @@ var demoProfile4 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -244,6 +310,7 @@ var demoProfile4 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -251,6 +318,7 @@ var demoProfile4 = {
     },
     {
       createdAt : '20/20/20',
+      action : "/",
       data :{
         title : 'Sic Mundus Creatus Est',
         content : 'yada yada yada yada yada yada yada yay'
@@ -261,26 +329,26 @@ var demoProfile4 = {
   [
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'1',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'3',
       numOfApp : ['1','2','3','4']
     },
     {
       createdAt:'20/20/20',
-      status:'applied',
+      status:'bookmarked',
       type:'Semester Exchange',
       college:'College Name',
-      postId:'post id',
+      postId:'5',
       numOfApp : ['1','2','3','4']
     },
   ]
