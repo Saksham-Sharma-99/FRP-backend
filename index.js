@@ -53,8 +53,9 @@ request.post(options, (err, res, body) => {
     }
     console.log(`Status: ${res.statusCode}`);
     console.log("body",body);
-    res.send("Redirecting . hold on for a second")
 });
+
+res.send("Redirecting . hold on for a second")
 
 // payload = "grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://foreignresearchportal.herokuapp.com/#/&code="+req.query.code
 //    headers = {
