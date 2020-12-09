@@ -21,7 +21,7 @@ request.get(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log(`Bearer ${token}`)
 
-    console.log("body",body);
+    console.log("body",resp);
     // User.append(JSON.parse(body))
     callback(User)
 });
