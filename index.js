@@ -80,8 +80,8 @@ app.get('/projects',(req,res)=>{
 })
 
 app.get('/userDetails',(req,res)=>{
+  console.log(req.headers.origin,'asked for user',req.query.token)
   DataHandler.demoUser(req.query.token,(user)=>{
-    console.log(req.headers.origin,'asked for user',req.query.token)
     res.send(user)
   })
 
