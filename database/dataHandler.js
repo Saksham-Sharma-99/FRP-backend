@@ -3,11 +3,12 @@ const lodash = require('lodash')
 const demoProfiles = require(__dirname+'/demoData/profiles')
 const projects = require(__dirname+'/demoData/projects')
 const request = require('request');
+const axios = require('axios')
 
 function demoUser(token,callback){
-  var User = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
+  var User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
   const options = {
-    url: 'https://internet.channeli.in/open_auth/token/',
+    url: 'https://internet.channeli.in/open_auth/get_user_data/',
     headers:{
       'authorization' : `Bearer ${token}`,
       'content-type': 'application/x-www-form-urlencoded',
