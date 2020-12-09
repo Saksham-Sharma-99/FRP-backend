@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
   params.append('client_id', "KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI");
   params.append('client_secret', "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm");
   params.append('grant_type',"authorization_code")
-  params.append('redirect_uri',"http://localhost:3000/")
+  params.append('redirect_uri',"https://foreignresearchportal.herokuapp.com/#/")
   params.append('code',req.query.code)
   console.log(params)
   axios.post("https://internet.channeli.in/open_auth/token/", params
