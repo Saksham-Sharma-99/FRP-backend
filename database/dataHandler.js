@@ -20,7 +20,9 @@ request.get(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log(`Bearer ${token}`)
 
-    console.log("body",body);
+    console.log("body",JSON.parse(body));
+    console.log("branch",body["branch department name"])
+    console.log("userId",body.userId)
     const data = [User,JSON.parse(body)]
     callback(data)
 });
