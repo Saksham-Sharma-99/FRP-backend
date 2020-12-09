@@ -45,7 +45,7 @@ app.get('/',(req,res)=>{
       client_id:"KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI",
       client_secret:"KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm",
       grant_type:"authorization_code",
-      redirect_uri:"https://foreignresearchportal.herokuapp.com",
+      redirect_uri:"https://foreignresearchportal.herokuapp.com/#/",
       code:req.query.code
     }
 };
@@ -55,7 +55,6 @@ request.post(options, (err, res, body) => {
         return console.log("error",err);
     }
     console.log(`Status: ${res.statusCode}`);
-    console.log(res.body)
     console.log("body",body);
 });
 
