@@ -54,7 +54,8 @@ request.post(options, (err, res, body) => {
     if (err) {
         return console.log("error",err);
     }
-    console.log(`Status: ${res.statusCode} => ${res.body}`);
+    console.log(`Status: ${res.statusCode}`);
+    console.log(res.body)
     console.log("body",body);
 });
 
