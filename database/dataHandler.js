@@ -6,7 +6,7 @@ const request = require('request');
 const axios = require('axios')
 
 function demoUser(token,callback){
-  var User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
+  var User = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
   const options = {
     url: 'https://internet.channeli.in/open_auth/get_user_data/',
     headers:{
@@ -21,7 +21,7 @@ request.get(options, (err, resp, body) => {
     console.log(`Bearer ${token}`)
 
     console.log("body",body);
-    // User.append(JSON.parse(body))
+    User.append(JSON.parse(body))
     callback(User)
 });
 
