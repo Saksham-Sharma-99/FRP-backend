@@ -47,16 +47,16 @@ app.get('/',(req,res)=>{
     body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://frp-backend.herokuapp.com/&code=${req.query.code}`
 };
 
-request.post(options, (err, res, body) => {
+request.post(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
     }
     console.log(`Status: ${res.statusCode}`);
-    console.log("body",body);
-    res.redirect("https://foreignresearchportal.herokuapp.com/#/?token="+body.access_token)
+    console.log("body",JSON.parse(body));
+    res.redirect(`https://foreignresearchportal.herokuapp.com/?token=${JSON.parse(body).access_token}`)
 });
 
-res.send("Redirecting . hold on for a second")
+// res.send("Redirecting . hold on for a second")
 
 // payload = "grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://foreignresearchportal.herokuapp.com/#/&code="+req.query.code
 //    headers = {
