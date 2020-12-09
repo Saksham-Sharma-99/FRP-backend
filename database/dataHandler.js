@@ -9,7 +9,9 @@ function demoUser(token,callback){
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
     headers:{
-      'Authorization' : `Bearer ${token}`
+      'authorization' : `Bearer ${token}`,
+      'content-type': 'application/x-www-form-urlencoded',
+      'cache-control': "no-cache",
     }};
 
 request.get(options, (err, resp, body) => {
@@ -17,8 +19,10 @@ request.get(options, (err, resp, body) => {
         return console.log("error",err);
     }
     console.log(`Status: ${resp.statusCode}`);
-    console.log("body",JSON.parse(body));
-    User.append(JSON.parse(body))
+    console.log(`Bearer ${token}`)
+
+    console.log("body",body);
+    // User.append(JSON.parse(body))
     callback(User)
 });
 
