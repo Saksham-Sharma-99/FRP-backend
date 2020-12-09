@@ -16,7 +16,7 @@ request.get(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
     }
-    console.log(`Status: ${res.statusCode}`);
+    console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     User.append(JSON.parse(body))
     callback(User)

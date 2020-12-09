@@ -50,7 +50,7 @@ request.post(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
     }
-    console.log(`Status: ${res.statusCode}`);
+    console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     res.redirect(`https://foreignresearchportal.herokuapp.com/?token=${JSON.parse(body).access_token}`)
 });
