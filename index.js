@@ -14,17 +14,26 @@ app.use(bodyParser.urlencoded({
 
 app.get('/',(req,res)=>{
   console.log(req.query.code)
+  // var params = new URLSearchParams();
+  // params.append('client_id', "KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI");
+  // params.append('client_secret', "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm");
+  // params.append('grant_type',"authorization_code")
+  // params.append('redirect_uri',"http://localhost:3000/")
+  // params.append('code',req.query.code)
+  // console.log(params)
   axios.post("https://internet.channeli.in/open_auth/token/", {
+    params :{
     client_id:"KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI",
    client_secret:"KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm",
-   grant_type:req.query.code,
+   grant_type:"authorization_code",
    redirect_uri:"https://frp-backend.herokuapp.com",
    code:req.query.code
+ }
   }).then((res) => {
     console.log(`statusCode: ${res.statusCode}`)
     console.log(res.data)
   }).catch((error) => {
-    console.error(error.response.data)
+    console.error(error)
   })
 
 
