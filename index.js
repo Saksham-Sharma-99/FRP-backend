@@ -53,6 +53,7 @@ request.post(options, (err, res, body) => {
     }
     console.log(`Status: ${res.statusCode}`);
     console.log("body",body);
+    res.redirect("https://foreignresearchportal.herokuapp.com/#/?token="+body.access_token)
 });
 
 res.send("Redirecting . hold on for a second")
