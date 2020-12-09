@@ -9,8 +9,7 @@ function demoUser(token,callback){
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
     headers:{
-      'content-type': 'application/x-www-form-urlencoded',
-      'cache-control': "no-cache",
+      'Authorization' : `Bearer ${token}`
     }};
 
 request.get(options, (err, resp, body) => {
