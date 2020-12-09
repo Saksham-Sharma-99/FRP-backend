@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const DataHandler = require(__dirname+'/database/dataHandler.js')
-const axios = require('axios')
 const request = require('request');
 const app = express();
 
@@ -81,8 +80,8 @@ app.get('/projects',(req,res)=>{
 })
 
 app.get('/userDetails',(req,res)=>{
-  DataHandler.demoUser(req.query.userId,(user)=>{
-    console.log(req.headers.origin,'asked for user',req.query.userId)
+  DataHandler.demoUser(req.query.token,(user)=>{
+    console.log(req.headers.origin,'asked for user',req.query.token)
     res.send(user)
   })
 
