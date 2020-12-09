@@ -21,8 +21,8 @@ request.get(options, (err, resp, body) => {
     console.log(`Bearer ${token}`)
 
     console.log("body",JSON.parse(body));
-    console.log("branch",body["branch department name"])
-    console.log("userId",body.userId)
+    console.log("branch",JSON.parse(body).student['branch degree name'])
+    console.log("userId",JSON.parse(body).userId)
     const data = [User,JSON.parse(body)]
     callback(data)
 });
