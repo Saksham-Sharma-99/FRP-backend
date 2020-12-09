@@ -40,7 +40,10 @@ app.get('/',(req,res)=>{
 //-----------------------------------------------
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
-    json: true,
+    headers:{
+      'content-type': 'application/x-www-form-urlencoded',
+      'cache-control': "no-cache",
+    },
     body: {
       client_id:"KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI",
       client_secret:"KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm",
