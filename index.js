@@ -52,10 +52,10 @@ app.get('/',(req,res)=>{
 
 request.post(options, (err, res, body) => {
     if (err) {
-        return console.log(err);
+        return console.log("error",err);
     }
-    console.log(`Status: ${res.statusCode} => ${res.statusString}`);
-    console.log(body);
+    console.log(`Status: ${res.statusCode} => ${res.body}`);
+    console.log("body",body);
 });
 
 //-----------------------------------------------
