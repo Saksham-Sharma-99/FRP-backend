@@ -31,7 +31,7 @@ request.post(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     // console.log('origin',req)
-    res.redirect(`https://foreignresearchportal.herokuapp.com/?token=${JSON.parse(body).access_token}`)
+    res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}`)
 });
 
 })
