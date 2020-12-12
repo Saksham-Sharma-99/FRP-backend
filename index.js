@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({
 
 app.get('/',(req,res)=>{
   console.log(req.query.code)
-  console.log(req.query.state)
 
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
@@ -22,7 +21,7 @@ app.get('/',(req,res)=>{
       'content-type': 'application/x-www-form-urlencoded',
       'cache-control': "no-cache",
     },
-    body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${req.query.state}&code=${req.query.code}`
+    body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=https://frp-backend.herokuapp.com/&code=${req.query.code}`
 };
 
 request.post(options, (err, resp, body) => {
