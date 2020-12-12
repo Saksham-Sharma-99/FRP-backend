@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.get('/',(req,res)=>{
   console.log(req.query.code)
+  console.log(req.query.state)
 
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
