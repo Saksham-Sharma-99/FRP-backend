@@ -24,8 +24,10 @@ request.get(options, (err, resp, body) => {
     console.log("branch",JSON.parse(body).student['branch degree name'])
     console.log("userId",JSON.parse(body).userId)
     const data = [User,JSON.parse(body)]
+
     let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     console.log(JSON.parse(rawData))
+    fs.writeFileSync(__dirname+'/data/users/users.json',body)
     callback(data)
 });
 
