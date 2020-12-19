@@ -70,12 +70,10 @@ function bookmark(userId , postId , callback){
         user.applications.bookmarked.push(postId)
       }})
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
-    console.log("before",projects)
     projects.projects.map((project)=>{
       if(project.postId == postId){
         project.bookmarked.push(userId)
       }})
-    console.log("after",projects)
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }else{
@@ -90,10 +88,16 @@ function removeBookmark(userId , postId , callback){
 
   if(users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.includes(postId)){
     let newArray = users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.filter((id)=>id!=postId)
-    users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked=newArray
+    users.users.map((user)=>{
+      if(user.userId == userId){
+        user.applications.bookmarked = newArray
+      }})
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     newArray = projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.filter((id)=>id!=userId)
-    projects.projects.filter((project)=>project.postId == postId)[0].bookmarked=newArray
+    projects.projects.map((project)=>{
+      if(project.postId == postId){
+        project.bookmarked = newArray
+      }})
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }else{
