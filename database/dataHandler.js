@@ -36,10 +36,8 @@ function demoProjects(callback){
 
 
 function addUser(body){
-  
   let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawData)
-  
   let userExists = (users.users.filter((user)=>user.userId==JSON.parse(body).userId).length == 1)
   if(userExists){
     console.log("user already exists")
@@ -47,7 +45,9 @@ function addUser(body){
   }else{
     console.log("user added")
     console.log(JSON.parse(body))
-    users.users.push(JSON.parse(body))
+    var newUser = JSON.parse(body)
+    newUser.applications = {applied:[],bookmarked:[]}
+    users.users.push(newUser)
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
 }
