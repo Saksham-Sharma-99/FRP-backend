@@ -105,10 +105,35 @@ function removeBookmark(userId , postId , callback){
   }
 }
 
+function apply(userId,postId,callback){
+  console.log("user :",userId , "asked to apply post",postId)
+  let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawUserData)
+  let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
+  let projects = JSON.parse(rawPostData)
+
+  if(!users.users.filter((user)=>user.userId == userId)[0].applications.applied.includes(postId)){
+    users.users.map((user)=>{
+      if(user.userId == userId){
+        user.applications.applied.push(postId)
+      }})
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
+    projects.projects.map((project)=>{
+      if(project.postId == postId){
+        project.applicants.push(userId)
+      }})
+    fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
+    callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
+  }else{
+    callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
+  }
+}
+
 
 module.exports = {
   demoUser : demoUser,
   demoProjects : demoProjects,
   bookmark : bookmark,
-  removeBookmark : removeBookmark
+  removeBookmark : removeBookmark,
+  apply : apply
 }

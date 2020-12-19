@@ -75,6 +75,12 @@ app.post("/removeBookmark",(req,res)=>{
   })
 })
 
+app.post("/apply",(req,res)=>{
+  DataHandler.apply(parseInt(req.query.userId),parseInt(req.query.postId),(status)=>{
+    res.send(status)
+  })
+})
+
 
 const port = process.env.PORT || 5000
 app.listen(port,()=>{
