@@ -47,7 +47,7 @@ function addUser(body){
     console.log("user added")
 
     var newUser = JSON.parse(body)
-    newUser.applications = JSON.parse({"applied":[],"bookmarked":[]})
+    newUser.applications = {applied:[],bookmarked:[]}
     // console.log(newUser)
     users.users.push(newUser)
     console.log(users.users)
