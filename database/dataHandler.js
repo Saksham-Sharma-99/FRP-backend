@@ -64,11 +64,11 @@ function bookmark(userId , postId , callback){
   let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
   let projects = JSON.parse(rawPostData)
 
-  console.log(users.users.filter((user)=>user.userId == userId)[0])
+  console.log(users.users.filter((user)=>user.userId == userId)[0].applications)
 
-  if(!users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
-    users.users.filter((user)=>user.userId == userId)[0].bookmarked.push(postId)
-    projects.projects.filter((project)=>project.postId == postId)[0].applications.bookmarked.push(userId)
+  if(!users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.includes(postId)){
+    users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.push(postId)
+    projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
     callback({status:"bookmarked successfully"})
   }else{
     callback({status:"already bookmarked"})
