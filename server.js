@@ -63,6 +63,7 @@ app.get('/results',(req,res)=>{
 
 
 app.post("/bookmark",(req,res)=>{
+  console.log(req)
   console.log("user :",req.query.userId , "asked to bookmark post",req.query.postId)
   DataHandler.bookmark(req.query.userId,req.query.postId,(status)=>{
     res.send(status)
