@@ -58,7 +58,7 @@ function addUser(body){
 }
 
 function bookmark(userId , postId , callback){
-  console.log("user :",userId , "asked to bookmark post",postId)
+  console.log("user :"+userId , "asked to bookmark post"+postId)
   let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawUserData)
   let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
