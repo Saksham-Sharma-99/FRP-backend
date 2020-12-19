@@ -63,7 +63,7 @@ app.get('/results',(req,res)=>{
 
 
 app.post("/bookmark",(req,res)=>{
-  DataHandler.bookmark(req.query.userId,req.query.postId,(status)=>{
+  DataHandler.bookmark(parseInt(req.query.userId),parseInt(req.query.postId),(status)=>{
     res.send(status)
   })
 })
