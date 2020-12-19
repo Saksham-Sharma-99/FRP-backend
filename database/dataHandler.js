@@ -21,9 +21,6 @@ request.get(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log(`Bearer ${token}`)
 
-    console.log("body",JSON.parse(body));
-    console.log("branch",JSON.parse(body).student['branch degree name'])
-    console.log("userId",JSON.parse(body).userId)
     const data = [User,JSON.parse(body)]
 
     addUser(body)
@@ -32,6 +29,8 @@ request.get(options, (err, resp, body) => {
 });
 }
 function demoProjects(callback){
+  let rawData = fs.readFileSync(__dirname+'/demoData/projects.json')
+  let projects = JSON.parse(rawData)
   callback(projects.projects)
 }
 
@@ -52,10 +51,6 @@ function addUser(body){
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
 }
-
-
-
-
 
 
 module.exports = {

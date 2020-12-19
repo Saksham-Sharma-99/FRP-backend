@@ -2,11 +2,11 @@
     "users" : 
     [
         { 
-            "name": "Sara",
+            "name": "Vampidoo",
             "age": 23,
-            "gender": "Female",
-            "department": "History",
-            "car": "Honda"
+            "gender": "Male",
+            "role": "Creater",
+            "userId": -1
         }
     ]
 }
