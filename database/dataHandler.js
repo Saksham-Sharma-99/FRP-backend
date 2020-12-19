@@ -154,7 +154,8 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   results.results.filter((result)=>result.postId == postId)[0].numOfApp.map((userId)=>{
     users.users.map((user)=>{
       if(userId == (user.userId)){
-        user.results.filter((result)=>{result.postId == postId})[0].numOfApp=results.results.filter((result)=>result.postId == postId)[0].numOfApp
+        console.log(user.results.filter((result)=>result.postId == postId))
+        user.results.filter((result)=>result.postId == postId)[0].numOfApp=results.results.filter((result)=>result.postId == postId)[0].numOfApp
       }
     })
   })
