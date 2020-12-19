@@ -67,7 +67,9 @@ function bookmark(userId , postId , callback){
   if(!users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.includes(postId)){
     users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.push(postId)
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
+    console.log("before",projects.projects.filter((project)=>project.postId == postId)[0].bookmarked)
     projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
+    console.log("after",projects.projects.filter((project)=>project.postId == postId)[0].bookmarked)
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }else{
