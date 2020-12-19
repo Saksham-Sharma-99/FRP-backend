@@ -47,8 +47,9 @@ function addUser(body){
 
     var newUser = JSON.parse(body)
     newUser.applications = {applied:[],bookmarked:[]}
-    console.log(newUser)
+    // console.log(newUser)
     users.users.push(newUser)
+    console.log(users.users)
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
 }
