@@ -68,8 +68,10 @@ function bookmark(userId , postId , callback){
 
   if(!users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.includes(postId)){
     users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.push(postId)
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
-    callback({status:"bookmarked successfully"})
+    fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
+    callback({status:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }else{
     callback({status:"already bookmarked"})
   }
@@ -80,12 +82,14 @@ function removeBookmark(userId , postId , callback){
   let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
   let projects = JSON.parse(rawPostData)
 
-  if(users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
+  if(users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked.includes(postId)){
     let newArray = users.users.filter((user)=>user.userId != userId)
-    users.users.filter((user)=>user.userId == userId)[0].bookmarked=newArray
+    users.users.filter((user)=>user.userId == userId)[0].applications.bookmarked=newArray
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     newArray = projects.projects.filter((project)=>project.postId != postId)
     projects.projects.filter((project)=>project.postId == postId)[0].bookmarked=newArray
-    callback({status:"removed successfully"})
+    fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
+    callback({status:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }else{
     callback({status:"not bookmarked"})
   }
