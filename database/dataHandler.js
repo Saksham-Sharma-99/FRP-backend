@@ -21,9 +21,10 @@ request.get(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log(`Bearer ${token}`)
 
-    const data = [User,JSON.parse(body)]
+    const data = [User]
 
     addUser(body)
+    data.push(JSON.parse(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0]))
     
     callback(data)
 });
@@ -46,9 +47,9 @@ function addUser(body){
     console.log("user added")
 
     var newUser = JSON.parse(body)
-    body["applications"] = {"applied":[],"bookmarked":[]}
+    newUser.applications = JSON.parse({"applied":[],"bookmarked":[]})
     // console.log(newUser)
-    users.users.push(body)
+    users.users.push(newUser)
     console.log(users.users)
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
