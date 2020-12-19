@@ -114,6 +114,7 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   let projects = JSON.parse(rawPostData)
   let resultRawData = fs.readFileSync(__dirname+"/demoData/results.json")
   let results = JSON.parse(resultRawData)
+  let today = new Date().toLocaleDateString()
 
   if(!users.users.filter((user)=>user.userId == userId)[0].applications.applied.includes(postId)){
     users.users.map((user)=>{
@@ -121,8 +122,6 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
         user.applications.applied.push(postId)
         if (results.results.filter((result)=>result.postId == postId).length==0){
           results.results.push({
-            createdAt:'20/20/20',
-            status:'applied',
             type:type,
             college:name,
             postId:postId,
@@ -132,7 +131,14 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
           results.results.filter((result)=>result.postId == postId)[0].numOfApp.push(userId)
         }
         fs.writeFileSync(__dirname+"/demoData/results.json",JSON.stringify(results))
-        user.results.push(results.results.filter((result)=>result.postId == postId)[0])
+        user.results.push({
+          createdAt:today,
+          status:'applied',
+          type:type,
+          college:name,
+          postId:postId,
+          numOfApp : results.results.filter((result)=>result.postId == postId)[0].numOfApp
+        })
       }})
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     projects.projects.map((project)=>{
