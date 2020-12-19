@@ -26,7 +26,7 @@ request.get(options, (err, resp, body) => {
     addUser(body)
     let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     let users = JSON.parse(rawData)
-    data.push(JSON.parse(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0]))
+    data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
     
     callback(data)
 });
@@ -44,7 +44,7 @@ function addUser(body){
   let userExists = (users.users.filter((user)=>user.userId==JSON.parse(body).userId).length == 1)
   if(userExists){
     console.log("user already exists")
-    console.log(JSON.parse(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0]))
+    console.log(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
   }else{
     console.log("user added")
 
