@@ -92,5 +92,6 @@ function removeBookmark(userId , postId , callback){
 module.exports = {
   demoUser : demoUser,
   demoProjects : demoProjects,
-  bookmark : bookmark
+  bookmark : bookmark,
+  removeBookmark : removeBookmark
 }
