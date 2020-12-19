@@ -27,7 +27,7 @@ request.get(options, (err, resp, body) => {
 
     let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     let users = JSON.parse(rawData)
-    console.log(users)
+    console.log(users.users)
     fs.writeFileSync(__dirname+'/data/users/users.json',users.users.append(JSON.parse(body)))
 
     rawData = fs.readFileSync(__dirname+'/data/users/users.json')
