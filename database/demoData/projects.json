@@ -2,7 +2,7 @@
     "projects":[
         {
             "createdAt" : "20/20/20",
-            "postId" : "1",
+            "postId" : 1,
             "data" :
             {
               "image" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
@@ -17,7 +17,7 @@
           },
           {
             "createdAt" : "20/20/20",
-            "postId" : "3",
+            "postId" : 3,
             "data" :
             {
               "image" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
@@ -32,7 +32,7 @@
           },
           {
             "createdAt" : "20/20/20",
-            "postId" : "5",
+            "postId" : 5,
             "data" :
             {
               "image" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
@@ -47,7 +47,7 @@
           },
           {
             "createdAt" : "20/20/20",
-            "postId" : "2",
+            "postId" : 2,
             "data" :
             {
               "image" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
@@ -62,7 +62,7 @@
           },
           {
             "createdAt" : "20/20/20",
-            "postId" : "4",
+            "postId" : 4,
             "data" :
             {
               "image" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
