@@ -26,8 +26,11 @@ request.get(options, (err, resp, body) => {
     const data = [User,JSON.parse(body)]
 
     let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+    let users = JSON.parse(rawData)
+    fs.writeFileSync(__dirname+'/data/users/users.json',users.users.append(JSON.parse(body)))
+
+    rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     console.log(JSON.parse(rawData))
-    fs.writeFileSync(__dirname+'/data/users/users.json',body)
     callback(data)
 });
 
