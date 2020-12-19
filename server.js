@@ -15,7 +15,9 @@ app.use(bodyParser.urlencoded({
 app.get('/',(req,res)=>{
   console.log(req.query.code)
 
-  var redirect_uri = req.headers.origin == "http://localhost:3000" ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/" 
+  var redirect_uri = req.headers.origin == "http://localhost:3000" ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
+  console.log(req.headers.origin)
+  console.log(redirect_uri)
 
   const options = {
     url: 'https://internet.channeli.in/open_auth/token/',
