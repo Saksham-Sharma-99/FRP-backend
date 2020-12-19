@@ -150,6 +150,15 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   }else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
+
+  results.results.filter((result)=>result.postId == postId)[0].numOfApp.map((userId)=>{
+    user.users.map((user)=>{
+      if(userId.includes(user.userId)){
+        user.results.filter((result)=>{result.postId == postId})[0].numOfApp=results.results.filter((result)=>result.postId == postId)[0].numOfApp
+      }
+    })
+  })
+  
 }
 
 
