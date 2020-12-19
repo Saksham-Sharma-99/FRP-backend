@@ -106,7 +106,7 @@ function removeBookmark(userId , postId , callback){
   }
 }
 
-function apply(userId,postId,name,callback,type="Semester Exchange"){
+function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   console.log("user :",userId , "asked to apply post",postId)
   let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawUserData)
@@ -152,5 +152,5 @@ module.exports = {
   demoProjects : demoProjects,
   bookmark : bookmark,
   removeBookmark : removeBookmark,
-  apply : apply
+  applyPost : applyPost
 }

@@ -76,7 +76,7 @@ app.post("/removeBookmark",(req,res)=>{
 })
 
 app.post("/apply",(req,res)=>{
-  DataHandler.apply(parseInt(req.query.userId),parseInt(req.query.postId),((status)=>{
+  DataHandler.applyPost(parseInt(req.query.userId),parseInt(req.query.postId),req.query.name,((status)=>{
     res.send(status)
   }))
 })
