@@ -64,6 +64,8 @@ function bookmark(userId , postId , callback){
   let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
   let projects = JSON.parse(rawPostData)
 
+  console.log(sers.users)
+
   if(!users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
     users.users.filter((user)=>user.userId == userId)[0].bookmarked.push(postId)
     projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
