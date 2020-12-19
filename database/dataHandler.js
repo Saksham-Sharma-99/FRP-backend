@@ -24,6 +24,8 @@ request.get(options, (err, resp, body) => {
     const data = [User]
 
     addUser(body)
+    let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+    let users = JSON.parse(rawData)
     data.push(JSON.parse(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0]))
     
     callback(data)
