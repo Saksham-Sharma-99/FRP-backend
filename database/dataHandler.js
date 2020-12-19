@@ -3,7 +3,7 @@ const lodash = require('lodash')
 const demoProfiles = require(__dirname+'/demoData/profiles')
 const projects = require(__dirname+'/demoData/projects')
 const request = require('request');
-const axios = require('axios')
+const fs = require('fs')
 
 function demoUser(token,callback){
   const User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
@@ -24,6 +24,8 @@ request.get(options, (err, resp, body) => {
     console.log("branch",JSON.parse(body).student['branch degree name'])
     console.log("userId",JSON.parse(body).userId)
     const data = [User,JSON.parse(body)]
+    let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+    console.log(JSON.parse(rawData))
     callback(data)
 });
 
