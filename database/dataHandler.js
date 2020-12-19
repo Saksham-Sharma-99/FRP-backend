@@ -28,7 +28,7 @@ request.get(options, (err, resp, body) => {
     let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     let users = JSON.parse(rawData)
     users.users.push(JSON.parse(body))
-    fs.writeFileSync(__dirname+'/data/users/users.json',users)
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
 
     rawData = fs.readFileSync(__dirname+'/data/users/users.json')
     console.log(JSON.parse(rawData))
