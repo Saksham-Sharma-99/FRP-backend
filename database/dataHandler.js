@@ -41,7 +41,7 @@ function addUser(body){
   let userExists = (users.users.filter((user)=>user.userId==JSON.parse(body).userId).length == 1)
   if(userExists){
     console.log("user already exists")
-    console.log(JSON.parse(body))
+    console.log(JSON.parse(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0]))
   }else{
     console.log("user added")
 
