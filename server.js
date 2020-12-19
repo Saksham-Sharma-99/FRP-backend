@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const DataHandler = require(__dirname+'/database/dataHandler.js')
 const request = require('request');
+const { query } = require("express");
 const app = express();
 
 app.use(cors());
@@ -59,6 +60,21 @@ app.get('/results',(req,res)=>{
   res.send("Results")
 })
 
+
+
+app.post("/bookmark",(req,res)=>{
+  console.log("user :",req.query.userId , "asked to bookmark post",req,query.postId)
+  DataHandler.bookmark(req.query.userId,req.query.postId,(status)=>{
+    res.send(status)
+  })
+})
+
+app.post("/removeBookmark",(req,res)=>{
+  console.log("user :",req.query.userId , "asked to bookmark post",req,query.postId)
+  DataHandler.removeBookmark(req.query.userId,req.query.postId,(status)=>{
+    res.send(status)
+  })
+})
 
 
 const port = process.env.PORT || 5000

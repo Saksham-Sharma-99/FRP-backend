@@ -57,8 +57,40 @@ function addUser(body){
   }
 }
 
+function bookmark(userId , postId , callback){
+  let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawUserData)
+  let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
+  let projects = JSON.parse(rawPostData)
+
+  if(!users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
+    users.users.filter((user)=>user.userId == userId)[0].bookmarked.push(postId)
+    projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
+    callback({status:"bookmarked successfully"})
+  }else{
+    callback({status:"already bookmarked"})
+  }
+}
+function removeBookmark(userId , postId , callback){
+  let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawUserData)
+  let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
+  let projects = JSON.parse(rawPostData)
+
+  if(users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
+    let newArray = users.users.filter((user)=>user.userId != userId)
+    users.users.filter((user)=>user.userId == userId)[0].bookmarked=newArray
+    newArray = projects.projects.filter((project)=>project.postId != postId)
+    projects.projects.filter((project)=>project.postId == postId)[0].bookmarked=newArray
+    callback({status:"removed successfully"})
+  }else{
+    callback({status:"not bookmarked"})
+  }
+}
+
 
 module.exports = {
   demoUser : demoUser,
-  demoProjects : demoProjects
+  demoProjects : demoProjects,
+  bookmark : bookmark
 }
