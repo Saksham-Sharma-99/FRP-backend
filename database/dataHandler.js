@@ -50,6 +50,7 @@ function addUser(body){
 
     var newUser = JSON.parse(body)
     newUser.applications = {applied:[],bookmarked:[]}
+    newUser.results = []
     // console.log(newUser)
     users.users.push(newUser)
     console.log(users.users)
@@ -105,17 +106,33 @@ function removeBookmark(userId , postId , callback){
   }
 }
 
-function apply(userId,postId,callback){
+function apply(userId,postId,name,callback,type="Semester Exchange"){
   console.log("user :",userId , "asked to apply post",postId)
   let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawUserData)
   let rawPostData = fs.readFileSync(__dirname+"/demoData/projects.json")
   let projects = JSON.parse(rawPostData)
+  let resultRawData = fs.readFileSync(__dirname+"/demoData/results.json")
+  let results = JSON.parse(resultRawData)
 
   if(!users.users.filter((user)=>user.userId == userId)[0].applications.applied.includes(postId)){
     users.users.map((user)=>{
       if(user.userId == userId){
         user.applications.applied.push(postId)
+        if (results.results.filter((result)=>result.postId == postId).length==0){
+          results.results.push({
+            createdAt:'20/20/20',
+            status:'applied',
+            type:type,
+            college:name,
+            postId:postId,
+            numOfApp : [userId] 
+          })
+        }else{
+          results.results.filter((result)=>result.postId == postId)[0].numOfApp.push(userId)
+        }
+        fs.writeFileSync(__dirname+"/demoData/results.json",JSON.stringify(results))
+        user.results.push(results.results.filter((result)=>result.postId == postId)[0])
       }})
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     projects.projects.map((project)=>{

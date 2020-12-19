@@ -70,7 +70,7 @@ app.post("/bookmark",(req,res)=>{
 
 app.post("/removeBookmark",(req,res)=>{
   console.log("user :",req.query.userId , "asked to remove bookmark post",req.query.postId)
-  DataHandler.removeBookmark(parseInt(req.query.userId),parseInt(req.query.postId),(status)=>{
+  DataHandler.removeBookmark(parseInt(req.query.userId),parseInt(req.query.postId),req.query.name,(status)=>{
     res.send(status)
   })
 })
