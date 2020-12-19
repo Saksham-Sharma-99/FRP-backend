@@ -68,7 +68,7 @@ function bookmark(userId , postId , callback){
 
   if(!users.users.filter((user)=>user.userId == userId)[0].bookmarked.includes(postId)){
     users.users.filter((user)=>user.userId == userId)[0].bookmarked.push(postId)
-    projects.projects.filter((project)=>project.postId == postId)[0].bookmarked.push(userId)
+    projects.projects.filter((project)=>project.postId == postId)[0].applications.bookmarked.push(userId)
     callback({status:"bookmarked successfully"})
   }else{
     callback({status:"already bookmarked"})
