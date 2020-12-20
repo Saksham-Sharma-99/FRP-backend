@@ -90,7 +90,7 @@ function checkUser(refresh_token,state,callback){
         // console.log('origin',req)
         demoUser(JSON.parse(body).access_token,JSON.parse(body).refresh_token,(data)=>{
           demoProjects((projects)=>{
-            callback({status:"exists",user:data,project:projects})
+            callback({status:"exists",user:data,project:projects,refresh_token:data[1].token})
           })
         })
     });
