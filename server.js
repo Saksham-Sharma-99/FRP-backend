@@ -26,8 +26,6 @@ app.get('/',(req,res)=>{
     },
     body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&code=${req.query.code}`
 };
-
-
 request.post(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
@@ -37,7 +35,6 @@ request.post(options, (err, resp, body) => {
     // console.log('origin',req)
     res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
 });
-
 })
 
 app.get('/projects',(req,res)=>{
@@ -63,7 +60,12 @@ app.get('/results',(req,res)=>{
 app.get('/checkUser',(req,res)=>{
   console.log("checking user with token",req.query.token)
   DataHandler.checkUser(req.query.token,req.query.state,(data)=>{
-    res.send(data)
+    if (data.status == "exists"){
+      res.redirect(`${req.query.state}?token=${data.token}&refresh_token=${data.refresh_token}`)
+    }
+    else{
+      res.send(data)
+    }
   })
 })
 

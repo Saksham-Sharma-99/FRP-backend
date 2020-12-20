@@ -77,7 +77,7 @@ function checkUser(refresh_token,state,callback){
         'content-type': 'application/x-www-form-urlencoded',
         'cache-control': "no-cache",
       },
-      body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&code=${refresh_token}`
+      body: `grant_type=refresh_token&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&refresh_token=${refresh_token}`
     };
 
     request.post(options, (err, resp, body) => {
@@ -87,7 +87,7 @@ function checkUser(refresh_token,state,callback){
         console.log(`Status: ${resp.statusCode}`);
         console.log("body",JSON.parse(body));
         // console.log('origin',req)
-        callback({status:"user exists"})
+        callback({status:"exists",token:JSON.parse(body).access_token,refresh_token:JSON.parse(body).refresh_token})
     });
   }
   
