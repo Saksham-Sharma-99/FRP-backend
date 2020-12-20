@@ -64,7 +64,7 @@ app.get('/checkUser',(req,res)=>{
       res.send({data:data.user,projects:data.project,token:data.refresh_token})
     }
     else{
-      res.send("doesn't exist")
+      res.send("doesnt exist")
     }
   })
 })
