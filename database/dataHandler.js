@@ -140,6 +140,13 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
           numOfApp : results.results.filter((result)=>result.postId == postId)[0].numOfApp
         })
       }})
+    results.results.filter((result)=>result.postId == postId)[0].numOfApp.map((userId)=>{
+      users.users.map((user)=>{
+        if(userId == (user.userId)){
+          user.results.filter((result)=>result.postId == postId)[0].numOfApp=results.results.filter((result)=>result.postId == postId)[0].numOfApp
+        }
+      })
+    })
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     projects.projects.map((project)=>{
       if(project.postId == postId){
@@ -150,14 +157,6 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   }else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
-
-  results.results.filter((result)=>result.postId == postId)[0].numOfApp.map((userId)=>{
-    users.users.map((user)=>{
-      if(userId == (user.userId)){
-        user.results.filter((result)=>result.postId == postId)[0].numOfApp=results.results.filter((result)=>result.postId == postId)[0].numOfApp
-      }
-    })
-  })
   
 }
 
