@@ -35,7 +35,7 @@ request.post(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     // console.log('origin',req)
-    res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}`)
+    res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
 });
 
 })
@@ -49,7 +49,7 @@ app.get('/projects',(req,res)=>{
 
 app.get('/userDetails',(req,res)=>{
   console.log(req.headers.origin,'asked for user',req.query.token)
-  DataHandler.demoUser(req.query.token,(user)=>{
+  DataHandler.demoUser(req.query.token,req.query.refresh_token,(user)=>{
     res.send(user)
   })
 
@@ -59,6 +59,18 @@ app.get('/results',(req,res)=>{
   console.log(req)
   res.send("Results")
 })
+
+app.get('/checkUser',(req,res)=>{
+  console.log("checking user with token",req.query.token)
+  DataHandler.checkUser(req.query.token,req.query.state,(data)=>{
+    res.send(data)
+  })
+})
+
+
+
+
+
 
 
 
