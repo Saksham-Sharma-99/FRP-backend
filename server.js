@@ -61,10 +61,10 @@ app.get('/checkUser',(req,res)=>{
   console.log("checking user with token",req.query.token)
   DataHandler.checkUser(req.query.token,req.query.state,(data)=>{
     if (data.status == "exists"){
-      res.redirect(`${req.query.state}?token=${data.token}&refresh_token=${data.refresh_token}`)
+      res.send({user:data.user,projects:data.project})
     }
     else{
-      res.send(data)
+      res.send("doesn't exist")
     }
   })
 })

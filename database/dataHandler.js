@@ -13,24 +13,24 @@ function demoUser(token,refresh_token,callback){
     headers:{
       'Authorization' : `Bearer ${token}`
     }};
+    request.get(options, (err, resp, body) => {
+      if (err) {
+          return console.log("error",err);
+      }
+      console.log(`Status: ${resp.statusCode}`);
+      console.log(`Bearer ${token}`)
 
-request.get(options, (err, resp, body) => {
-    if (err) {
-        return console.log("error",err);
-    }
-    console.log(`Status: ${resp.statusCode}`);
-    console.log(`Bearer ${token}`)
+      const data = [User]
 
-    const data = [User]
-
-    addUser(body,refresh_token)
-    let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
-    let users = JSON.parse(rawData)
-    data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
-    
-    callback(data)
-});
+      addUser(body,refresh_token)
+      let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+      let users = JSON.parse(rawData)
+      data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
+      
+      callback(data)
+    });
 }
+
 function demoProjects(callback){
   let rawData = fs.readFileSync(__dirname+'/demoData/projects.json')
   let projects = JSON.parse(rawData)
@@ -61,6 +61,7 @@ function addUser(body,refresh_token){
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
 }
+
 function checkUser(refresh_token,state,callback){
   let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawData)
@@ -87,7 +88,11 @@ function checkUser(refresh_token,state,callback){
         console.log(`Status: ${resp.statusCode}`);
         console.log("body",JSON.parse(body));
         // console.log('origin',req)
-        callback({status:"exists",token:JSON.parse(body).access_token,refresh_token:JSON.parse(body).refresh_token})
+        demoUser(JSON.parse(body).access_token,JSON.parse(body).refresh_token,(data)=>{
+          demoProjects((projects)=>{
+            callback({status:"exists",user:data,project:projects})
+          })
+        })
     });
   }
   
