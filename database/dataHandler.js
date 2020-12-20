@@ -44,6 +44,7 @@ function addUser(body,refresh_token){
   let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawData)
   let userExists = (users.users.filter((user)=>user.userId==JSON.parse(body).userId).length == 1)
+
   if(userExists){
     console.log("user already exists")
     console.log(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
@@ -63,20 +64,21 @@ function addUser(body,refresh_token){
 function checkUser(refresh_token,state,callback){
   let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawData)
+
   if (users.users.filter((user)=>user.token == refresh_token).length == 0){
     callback({status:"no user exists"})
-  }else{
+  }
+  else{
     var redirect_uri = (state == "http://localhost:3000/") ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
 
     const options = {
-      url: 'https://internet.channeli.in/open_auth/token/',
+      url: 'https://internet.channeli.in/open_auth/refresh_token/',
       headers:{
         'content-type': 'application/x-www-form-urlencoded',
         'cache-control': "no-cache",
       },
       body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&code=${refresh_token}`
     };
-
 
     request.post(options, (err, resp, body) => {
         if (err) {
@@ -85,6 +87,7 @@ function checkUser(refresh_token,state,callback){
         console.log(`Status: ${resp.statusCode}`);
         console.log("body",JSON.parse(body));
         // console.log('origin',req)
+        callback({status:"user exists"})
     });
   }
   
@@ -113,7 +116,8 @@ function bookmark(userId , postId , callback){
       }})
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
-  }else{
+  }
+  else{
     callback({status:"already bookmarked"})
   }
 }
@@ -137,7 +141,8 @@ function removeBookmark(userId , postId , callback){
       }})
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
-  }else{
+  }
+  else{
     callback({status:"not bookmarked"})
   }
 }
@@ -163,7 +168,8 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
             postId:postId,
             numOfApp : [userId] 
           })
-        }else{
+        }
+        else{
           results.results.filter((result)=>result.postId == postId)[0].numOfApp.push(userId)
         }
         fs.writeFileSync(__dirname+"/demoData/results.json",JSON.stringify(results))
@@ -190,7 +196,8 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
       }})
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
-  }else{
+  }
+  else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
   
