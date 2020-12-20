@@ -47,10 +47,10 @@ function addUser(body,refresh_token){
 
   if(userExists){
     console.log("user already exists")
+    users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0].token = refresh_token
     console.log(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
   }else{
     console.log("user added")
-
     var newUser = JSON.parse(body)
     newUser.applications = {applied:[],bookmarked:[]}
     newUser.results = []
@@ -58,8 +58,8 @@ function addUser(body,refresh_token){
     // console.log(newUser)
     users.users.push(newUser)
     console.log(users.users)
-    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
   }
+  fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
 }
 
 function checkUser(refresh_token,state,callback){
