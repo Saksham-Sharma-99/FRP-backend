@@ -32,3 +32,7 @@ function sendMail(userId,postId){
         }
       });
 }
+
+module.exports = {
+    sendMail : sendMail
+}

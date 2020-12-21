@@ -3,6 +3,7 @@ const demoProfiles = require(__dirname+'/demoData/profiles')
 const request = require('request');
 const fs = require('fs');
 const crypto = require("crypto");
+const { sendMail } = require('../Moderator/EmailsManager');
 
 function demoUser(token,refresh_token,callback){
   const User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
@@ -261,7 +262,7 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
-  
+  sendMail(userId,postId)
 }
 
 
