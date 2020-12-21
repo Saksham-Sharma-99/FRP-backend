@@ -4,6 +4,8 @@ const request = require('request');
 const fs = require('fs');
 const crypto = require("crypto");
 const { sendMail } = require('../Moderator/EmailsManager');
+const Constant = require('../Constants')
+const Constants = Constant.Constants
 
 function demoUser(token,refresh_token,callback){
   const User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
@@ -91,7 +93,7 @@ function checkUser(refresh_token,state,callback){
         'content-type': 'application/x-www-form-urlencoded',
         'cache-control': "no-cache",
       },
-      body: `grant_type=refresh_token&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&refresh_token=${refresh_token}`
+      body: `grant_type=refresh_token&client_secret=${Constants.SECRET}&client_id=${Constants.CLIENT_ID}&redirect_uri=${redirect_uri}&refresh_token=${refresh_token}`
     };
 
     request.post(options, (err, resp, body) => {

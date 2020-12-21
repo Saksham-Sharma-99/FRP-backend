@@ -29,7 +29,7 @@ function sendMail(userId,postId){
           console.log(error);
         } else {
           console.log('Email sent: ' + info.response);
-          console.log(info)
+          console.log("message sent successfully to",users.users.filter((user)=>user.userId == userId)[0].contactInformation.instituteWebmailAddress)
         }
       });
 }
