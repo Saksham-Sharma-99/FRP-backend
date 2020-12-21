@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const Constants = Constant.Constants
 
 
-app.get('/',(req,res)=>{
+app.get(Constants.Routes.default,(req,res)=>{
   console.log(req.query.code)
 
   var redirect_uri = (req.query.state == "http://localhost:3000/") ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
@@ -35,14 +35,14 @@ request.post(options, (err, resp, body) => {
 });
 })
 
-app.get('/projects',(req,res)=>{
+app.get(Constants.Routes.projects,(req,res)=>{
   DataHandler.demoProjects((projects)=>{
     console.log(req.headers.origin,'asked for projects')
     res.send(projects)
   })
 })
 
-app.get('/userDetails',(req,res)=>{
+app.get(Constants.Routes.userDetails,(req,res)=>{
   console.log(req.headers.origin,'asked for user',req.query.token)
   DataHandler.demoUser(req.query.token,req.query.refresh_token,(user)=>{
     res.send(user)
@@ -50,12 +50,12 @@ app.get('/userDetails',(req,res)=>{
 
 })
 
-app.get('/results',(req,res)=>{
+app.get(Constants.Routes.results,(req,res)=>{
   console.log(req)
   res.send("Results")
 })
 
-app.get('/checkUser',(req,res)=>{
+app.get(Constants.Routes.checkUser,(req,res)=>{
   console.log("checking user with token",req.query.token)
   DataHandler.checkUser(req.query.token,req.query.state,(data)=>{
     if (data.status == "exists"){
@@ -74,20 +74,20 @@ app.get('/checkUser',(req,res)=>{
 
 
 
-app.post("/bookmark",(req,res)=>{
+app.post(Constants.Routes.bookmark,(req,res)=>{
   DataHandler.bookmark(parseInt(req.query.userId),parseInt(req.query.postId),(status)=>{
     res.send(status)
   })
 })
 
-app.post("/removeBookmark",(req,res)=>{
+app.post(Constants.Routes.removeBookmark,(req,res)=>{
   console.log("user :",req.query.userId , "asked to remove bookmark post",req.query.postId)
   DataHandler.removeBookmark(parseInt(req.query.userId),parseInt(req.query.postId),((status)=>{
     res.send(status)
   }))
 })
 
-app.post("/apply",(req,res)=>{
+app.post(Constants.Routes.apply,(req,res)=>{
   DataHandler.applyPost(parseInt(req.query.userId),parseInt(req.query.postId),req.query.name,((status)=>{
     res.send(status)
   }))
@@ -103,3 +103,7 @@ const port = process.env.PORT || 5000
 app.listen(port,()=>{
     console.log('server started successfully on port:',port)
 })
+
+module.exports = {
+  port : port
+}
