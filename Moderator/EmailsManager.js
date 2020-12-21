@@ -13,9 +13,9 @@ const transporter = nodemailer.createTransport(
 )
 
 function sendMail(userId,postId){
-    let rawUserData = fs.readFileSync('../database/data/users/users.json')
+    let rawUserData = fs.readFileSync(__dirname+'/../database/data/users/users.json')
     let users = JSON.parse(rawUserData)
-    let rawPostData = fs.readFileSync("../database/demoData/projects.json")
+    let rawPostData = fs.readFileSync(__dirname+'/../database/demoData/projects.json')
     let projects = JSON.parse(rawPostData)
     var mailOptions = {
         from: Constants.EMAIL,
