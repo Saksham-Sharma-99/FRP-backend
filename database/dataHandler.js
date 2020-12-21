@@ -4,7 +4,7 @@ const demoProfiles = require(__dirname+'/demoData/profiles')
 const projects = require(__dirname+'/demoData/projects')
 const request = require('request');
 const fs = require('fs');
-const { add } = require('lodash');
+const crypto = require("crypto");
 
 function demoUser(token,refresh_token,callback){
   const User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
@@ -49,12 +49,26 @@ function addUser(body,refresh_token){
     console.log("user already exists")
     users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0].token = refresh_token
     console.log(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
-  }else{
+  }
+  else{
+    let today = new Date().toLocaleDateString()
     console.log("user added")
     var newUser = JSON.parse(body)
     newUser.applications = {applied:[],bookmarked:[]}
     newUser.results = []
     newUser.token = refresh_token
+    newUser.notifs = [ 
+      {
+        createdAt : today,
+        action : "#",
+        data :{
+          title : 'New User',
+          content : 'Welcome To FRP'
+        },
+        notifId : crypto.randomBytes(20).toString('hex'),
+        read : false
+      }
+    ]
     // console.log(newUser)
     users.users.push(newUser)
     console.log(users.users)
@@ -98,6 +112,46 @@ function checkUser(refresh_token,state,callback){
   
 }
 
+
+
+
+function createNotif(userId , title , content, action){
+  let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawData)
+
+  if(users.users.filter((user)=>user.userId == userId).length != 0){
+    let today = new Date().toLocaleDateString()
+    console.log("notification created successfully")
+    users.users.filter((user)=>user.userId == userId)[0].notifs.push({
+      createdAt : today,
+      action : action,
+      data :{
+        title : title,
+        content : content
+      },
+      notifId : crypto.randomBytes(20).toString('hex'),
+      read : false
+    })
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
+  }
+  else{
+    console.log("no such user exists , can't create notification")
+  }
+
+}
+function markRead(userId,notifId){
+  if(users.users.filter((user)=>user.userId == userId).length != 0){
+    if(users.users.filter((user)=>user.userId == userId)[0].notifs.filter((notif)=>notif.notifId == notifId).length != 0){
+      users.users.filter((user)=>user.userId == userId)[0].notifs.filter((notif)=>notif.notifId == notifId)[0].read = true
+    }
+    else{
+      console.log("no such notif exists")
+    }
+  }
+  else{
+    console.log("no such user exists")
+  }
+}
 
 
 
@@ -200,7 +254,11 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
         project.applicants.push(userId)
       }})
     fs.writeFileSync(__dirname+'/demoData/projects.json',JSON.stringify(projects))
-    callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
+    var content = `applied for ${type} at ${projects.projects.filter((project)=>project.postId == postId)[0].data.name}`
+    createNotif(userId,"Applied Successfully!",content,"#")
+    let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+    let Users = JSON.parse(rawUserData)
+    callback({user:Users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
   else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
@@ -215,5 +273,6 @@ module.exports = {
   bookmark : bookmark,
   removeBookmark : removeBookmark,
   applyPost : applyPost,
-  checkUser : checkUser
+  checkUser : checkUser,
+  markRead : markRead
 }
