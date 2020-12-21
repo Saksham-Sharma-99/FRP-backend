@@ -3,14 +3,12 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const DataHandler = require(__dirname+'/database/dataHandler.js')
 const request = require('request');
-const { query } = require("express");
+const Constant = require(__dirname+"/Constants.js")
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
+app.use(bodyParser.urlencoded({extended: true}));
+const Constants = Constant.Constants
 
 
 app.get('/',(req,res)=>{
@@ -24,7 +22,7 @@ app.get('/',(req,res)=>{
       'content-type': 'application/x-www-form-urlencoded',
       'cache-control': "no-cache",
     },
-    body: `grant_type=authorization_code&client_secret=KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm&client_id=KhvKozOsGjVXmRNZcvL8SB8S9XxZ7PKJOfazP9sI&redirect_uri=${redirect_uri}&code=${req.query.code}`
+    body: `grant_type=authorization_code&client_secret=${Constants.SECRET}&client_id=${Constants.CLIENT_ID}&redirect_uri=${redirect_uri}&code=${req.query.code}`
 };
 request.post(options, (err, resp, body) => {
     if (err) {

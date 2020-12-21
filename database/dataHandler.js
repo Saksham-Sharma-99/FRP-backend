@@ -1,7 +1,5 @@
 const https = require('https')
-const lodash = require('lodash')
 const demoProfiles = require(__dirname+'/demoData/profiles')
-const projects = require(__dirname+'/demoData/projects')
 const request = require('request');
 const fs = require('fs');
 const crypto = require("crypto");
