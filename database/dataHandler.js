@@ -31,9 +31,14 @@ function demoUser(token,refresh_token,callback){
         
         callback(data)
       }
-      else{
+      else if(resp.statusCode==401){
         console.log(`Status: ${resp.statusCode}`);
         console.log(body)
+        const data = [User]
+        let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+        let users = JSON.parse(rawData)
+        data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
+        callback(data)
       }
     });
 }

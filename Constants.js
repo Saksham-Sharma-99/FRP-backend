@@ -1,4 +1,4 @@
-const port = require(__dirname+"/server.js")
+const port = 500
 
 const Constants = {
     SECRET : "KiSTNolWFrQEehYloliUyLRdauKG2XczUL0ST4HapeZXA68XnaOMZ7nWLg6SAwtbJxG7UWlnXdyVO9Do0rcaqFKFxT86ZVmJ5jDRtstmi5Wzidrlk9fh5oZa6CyGegUm",
@@ -15,7 +15,8 @@ const Constants = {
         checkUser : (port == 5000) ? "/api/checkUser" : "/checkUser",
         bookmark : (port == 5000) ? "/api/bookmark" : "/bookmark",
         removeBookmark : (port == 5000) ? "/api/removeBookmark" : "/removeBookmark",
-        apply : (port == 5000) ? "/api/apply" : "/apply"
+        apply : (port == 5000) ? "/api/apply" : "/apply",
+        port : port,
     }
 
 }
