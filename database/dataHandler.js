@@ -112,14 +112,20 @@ function checkUser(refresh_token,state,callback){
         if (err) {
             return console.log("error",err);
         }
-        console.log(`Status: ${resp.statusCode}`);
-        console.log("body",JSON.parse(body));
-        // console.log('origin',req)
-        demoUser(JSON.parse(body).access_token,refresh_token,(data)=>{
-          demoProjects((projects)=>{
-            callback({status:"exists",user:data,project:projects,refresh_token:data[1].token})
+        if(resp.statusCode == 200){
+          console.log(`Status: ${resp.statusCode}`);
+          console.log("body",JSON.parse(body));
+          // console.log('origin',req)
+          demoUser(JSON.parse(body).access_token,JSON.parse(body).refresh_token,(data)=>{
+            demoProjects((projects)=>{
+              callback({status:"exists",user:data,project:projects,refresh_token:data[1].token})
+            })
           })
-        })
+      }
+      else{
+        callback({status:"no user exists"})
+        console.log("no user exists")
+      }
     });
   }
   
