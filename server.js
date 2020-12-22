@@ -1,14 +1,21 @@
 const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors');
-const DataHandler = require(__dirname+'/database/dataHandler.js')
+const fileUpload = require('express-fileupload');
 const request = require('request');
+const morgan = require('morgan');
+const DataHandler = require(__dirname+'/database/dataHandler.js')
 const Constant = require(__dirname+"/Constants.js")
-const app = express();
-
-app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
 const Constants = Constant.Constants
+
+const app = express();
+app.use(cors());
+app.use(morgan('dev'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(fileUpload({createParentPath: true}));
+app.use(express.static('public'))
+
 
 
 app.get(Constants.Routes.default,(req,res)=>{
@@ -93,7 +100,38 @@ app.post(Constants.Routes.apply,(req,res)=>{
   }))
 })
 
+app.post(Constants.Routes.uploadFile , (req,res)=>{
+  console.log(req.body.userId,"tried to upload",req.body.name)
+  console.log(req.files)
+  try {
+    if(!req.files) {
+      res.send({
+          status: false,
+          message: 'No file uploaded'
+      });
+    } 
+    else {
+      let file = req.files.file;
+      file.name = req.body.userId+"-"+req.body.name
+      file.mv('./public/files/'+file.name);
 
+      //send response
+      res.send({
+          status: true,
+          message: 'File is uploaded',
+          data: {
+              name: file.name,
+              mimetype: file.mimetype,
+              size: file.size
+          }
+      });
+    }
+  } catch (err) {
+    console.log(err)
+      res.status(500).send(err);
+  }
+   
+})
 
 
 
