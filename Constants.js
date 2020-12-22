@@ -8,8 +8,8 @@ const Constants = {
     SERVICE : "outlook",
 
     Routes : {
-        default : (port != 5000) ? "/api/" : "/",
-        projects : (port != 5000) ? "/api/projects" : "/projects",
+        default : (port == 5000) ? "/api/" : "/",
+        projects : (port == 5000) ? "/api/projects" : "/projects",
         userDetails : (port == 5000) ? "/api/userDetails" : "/userDetails",
         results : (port == 5000) ? "/api/results" : "/results",
         checkUser : (port == 5000) ? "/api/checkUser" : "/checkUser",

@@ -18,17 +18,23 @@ function demoUser(token,refresh_token,callback){
       if (err) {
           return console.log("error",err);
       }
-      console.log(`Status: ${resp.statusCode}`);
-      console.log(`Bearer ${token}`)
+      if(resp.statusCode == 200){
+        console.log(`Status: ${resp.statusCode}`);
+        console.log(`Bearer ${token}`)
 
-      const data = [User]
+        const data = [User]
 
-      addUser(body,refresh_token)
-      let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
-      let users = JSON.parse(rawData)
-      data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
-      
-      callback(data)
+        addUser(body,refresh_token)
+        let rawData = fs.readFileSync(__dirname+'/data/users/users.json')
+        let users = JSON.parse(rawData)
+        data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
+        
+        callback(data)
+      }
+      else{
+        console.log(`Status: ${resp.statusCode}`);
+        console.log(body)
+      }
     });
 }
 
@@ -83,6 +89,7 @@ function checkUser(refresh_token,state,callback){
 
   if (users.users.filter((user)=>user.token == refresh_token).length == 0){
     callback({status:"no user exists"})
+    console.log("no user exists")
   }
   else{
     var redirect_uri = (state == "http://localhost:3000/") ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
@@ -103,7 +110,7 @@ function checkUser(refresh_token,state,callback){
         console.log(`Status: ${resp.statusCode}`);
         console.log("body",JSON.parse(body));
         // console.log('origin',req)
-        demoUser(JSON.parse(body).access_token,JSON.parse(body).refresh_token,(data)=>{
+        demoUser(JSON.parse(body).access_token,refresh_token,(data)=>{
           demoProjects((projects)=>{
             callback({status:"exists",user:data,project:projects,refresh_token:data[1].token})
           })
