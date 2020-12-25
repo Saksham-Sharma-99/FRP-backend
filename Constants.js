@@ -17,7 +17,7 @@ const Constants = {
         removeBookmark : (port == 5000) ? "/api/removeBookmark" : "/removeBookmark",
         apply : (port == 5000) ? "/api/apply" : "/apply",
         uploadFile : (port == 5000) ? "/api/uploadFile" : "/uploadFile",
-        pathStatus : (port == 5000) ? "/api/pathStatus" : "/pathStatus",
+        passStatus : (port == 5000) ? "/api/pathStatus" : "/pathStatus",
         port : port,
     }
 
