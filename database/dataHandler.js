@@ -309,6 +309,22 @@ function changePassStatus(userId,status,callback){
   }
 }
 
+function fileUpload(userId,filetype,location,callback){
+  let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawUserData)
+  let data = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
+  if(users.users.filter((user)=>user.userId == userId).length == 1){
+    users.users.filter((user)=>user.userId == userId)[0].documents[filetype] = location
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
+    data.push(users.users.filter((user)=>user.userId==userId)[0])
+    console.log("status changed successfully")
+    callback(data)
+  }else{
+    console.log("no such user exists")
+    callback({status:"no such user exists"})
+  }
+}
+
 
 module.exports = {
   demoUser : demoUser,
@@ -318,5 +334,6 @@ module.exports = {
   applyPost : applyPost,
   checkUser : checkUser,
   markRead : markRead,
-  changePassStatus : changePassStatus
+  changePassStatus : changePassStatus,
+  fileUpload : fileUpload
 }

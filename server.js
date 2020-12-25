@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require('body-parser')
 const cors = require('cors');
+const fs = require('fs')
 const fileUpload = require('express-fileupload');
 const request = require('request');
 const morgan = require('morgan');
-const dataHandler = require("./database/dataHandler");
 const DataHandler = require(__dirname+'/database/dataHandler.js')
 const Constant = require(__dirname+"/Constants.js")
 const Constants = Constant.Constants
@@ -116,16 +116,18 @@ app.post(Constants.Routes.uploadFile , (req,res)=>{
       file.name = req.body.userId+"-"+req.body.name
       file.mv('./public/files/'+file.name);
 
-      //send response
-      res.send({
+      DataHandler.fileUpload(req.body.userId,req.body.name,file.name,(data)=>{
+        res.send({
           status: true,
           message: 'File is uploaded',
           data: {
               name: file.name,
               mimetype: file.mimetype,
-              size: file.size
+              size: file.size,
+              data:data
           }
       });
+      })
     }
   } catch (err) {
       console.log(err)
