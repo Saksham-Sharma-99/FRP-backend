@@ -296,13 +296,14 @@ function changePassStatus(userId,status,callback){
   let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawUserData)
   let data = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
-  if(users.users.filter((user)=>user.userId == userId).length == 0){
+  if(users.users.filter((user)=>user.userId == userId).length == 1){
     users.users.filter((user)=>user.userId == userId)[0].passStatus = status
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
     callback(data)
   }else{
     console.log("no such user exists")
+    callback({status:"no such user exists"})
   }
 }
 
