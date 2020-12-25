@@ -113,7 +113,7 @@ app.post(Constants.Routes.uploadFile , (req,res)=>{
     } 
     else {
       let file = req.files.file;
-      file.name = req.body.userId+"-"+req.body.name
+      file.name = req.body.userId+"-"+req.body.name+".pdf"
       file.mv('./public/files/'+file.name);
 
       DataHandler.fileUpload(req.body.userId,req.body.name,file.name,(data)=>{
