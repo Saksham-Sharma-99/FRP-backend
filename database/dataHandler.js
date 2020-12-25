@@ -317,7 +317,7 @@ function fileUpload(userId,filetype,location,callback){
     users.users.filter((user)=>user.userId == userId)[0].documents[filetype] = location
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     data.push(users.users.filter((user)=>user.userId==userId)[0])
-    console.log("status changed successfully")
+    console.log("file uploaded successfully")
     callback(data)
   }else{
     console.log("no such user exists")
