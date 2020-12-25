@@ -133,7 +133,7 @@ app.post(Constants.Routes.uploadFile , (req,res)=>{
   }
    
 })
-app.post(Constants.PASS_STATUS,(req,res)=>{
+app.post(Constants.Routes.passStatus,(req,res)=>{
   console.log(req.query.userId,"tried to change passport status to",req.query.passStatus)
   DataHandler.changePassStatus(req.query.userId , req.query.passStatus,(data)=>res.send(data))
 })
