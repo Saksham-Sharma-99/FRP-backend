@@ -298,7 +298,7 @@ function changePassStatus(userId,status,callback){
   let data = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
   console.log(users.users.filter((user)=>user.userId ==userId))
   if(users.users.filter((user)=>user.userId == userId).length == 1){
-    users.users.filter((user)=>user.userId == userId)[0].documents.passStatus = status
+    users.users.filter((user)=>user.userId == userId)[0].passStatus = status
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
     callback(data)
