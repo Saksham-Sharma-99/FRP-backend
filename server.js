@@ -4,6 +4,7 @@ const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const request = require('request');
 const morgan = require('morgan');
+const dataHandler = require("./database/dataHandler");
 const DataHandler = require(__dirname+'/database/dataHandler.js')
 const Constant = require(__dirname+"/Constants.js")
 const Constants = Constant.Constants
@@ -132,6 +133,11 @@ app.post(Constants.Routes.uploadFile , (req,res)=>{
   }
    
 })
+app.post(Constants.PASS_STATUS,(req,res)=>{
+  console.log(req.query.userId,"tried to change passport status to",req.query.passStatus)
+  DataHandler.changePassStatus(req.query.userId , req.query.passStatus,(data)=>res.send(data))
+})
+
 
 
 

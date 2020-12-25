@@ -81,7 +81,12 @@ function addUser(body,refresh_token){
         read : false
       }
     ]
-    // console.log(newUser)
+    newUser.documents = {
+      resume : "",
+      transcript : ""
+    }
+    newUser.passStatus = "no"
+    console.log(newUser)
     users.users.push(newUser)
     console.log(users.users)
   }
@@ -286,6 +291,22 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
 }
 
 
+
+function changePassStatus(userId,status,callback){
+  let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
+  let users = JSON.parse(rawUserData)
+  let data = [demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)]
+  if(users.users.filter((user)=>user.userId == userId).length == 0){
+    users.users.filter((user)=>user.userId == userId)[0].passStatus = status
+    fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
+    data.push(users.users.filter((user)=>user.userId==JSON.parse(body).userId)[0])
+    callback(data)
+  }else{
+    console.log("no such user exists")
+  }
+}
+
+
 module.exports = {
   demoUser : demoUser,
   demoProjects : demoProjects,
@@ -293,5 +314,6 @@ module.exports = {
   removeBookmark : removeBookmark,
   applyPost : applyPost,
   checkUser : checkUser,
-  markRead : markRead
+  markRead : markRead,
+  changePassStatus : changePassStatus
 }
