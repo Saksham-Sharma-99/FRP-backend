@@ -301,6 +301,7 @@ function changePassStatus(userId,status,callback){
     users.users.filter((user)=>user.userId == userId)[0].passStatus = status
     fs.writeFileSync(__dirname+'/data/users/users.json',JSON.stringify(users))
     data.push(users.users.filter((user)=>user.userId==userId)[0])
+    console.log("status changed successfully")
     callback(data)
   }else{
     console.log("no such user exists")
