@@ -75,7 +75,8 @@ app.get(Constants.Routes.checkUser,(req,res)=>{
   })
 })
 app.get(Constants.Routes.files ,(req,res)=>{
-  res.sendFile(req.query.name)
+  console.log(req.query.name)
+  res.sendFile('./public/files/'+req.query.name)
 })
 
 
