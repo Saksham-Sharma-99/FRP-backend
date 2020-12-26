@@ -230,7 +230,7 @@ function removeBookmark(userId , postId , callback){
   }
 }
 
-function applyPost(userId,postId,name,callback,type="Semester Exchange"){
+function applyPost(userId,postId,name,sop,callback,type="Semester Exchange"){
   console.log("user :",userId , "asked to apply post",postId)
   let rawUserData = fs.readFileSync(__dirname+'/data/users/users.json')
   let users = JSON.parse(rawUserData)
@@ -287,7 +287,7 @@ function applyPost(userId,postId,name,callback,type="Semester Exchange"){
   else{
     callback({user:users.users.filter((user)=>user.userId == userId)[0],projects:projects})
   }
-  sendMail(userId,postId)
+  sendMail(userId,postId,sop)
 }
 
 

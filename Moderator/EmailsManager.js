@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport(
     }
 )
 
-function sendMail(userId,postId){
+function sendMail(userId,postId,sop){
     let rawUserData = fs.readFileSync(__dirname+'/../database/data/users/users.json')
     let users = JSON.parse(rawUserData)
     let rawPostData = fs.readFileSync(__dirname+'/../database/demoData/projects.json')
@@ -21,7 +21,7 @@ function sendMail(userId,postId){
         from: Constants.EMAIL,
         to: users.users.filter((user)=>user.userId == userId)[0].contactInformation.instituteWebmailAddress,
         subject: 'Updates on your application',
-        text: `Your Application for semester exchange with ${projects.projects.filter((project)=>project.postId == postId)[0].data.name} was successful`
+        text: `Your Application for semester exchange with ${projects.projects.filter((project)=>project.postId == postId)[0].data.name} was successful \n${sop}`
       };
 
       transporter.sendMail(mailOptions, function(error, info){

@@ -96,7 +96,7 @@ app.post(Constants.Routes.removeBookmark,(req,res)=>{
 })
 
 app.post(Constants.Routes.apply,(req,res)=>{
-  DataHandler.applyPost(parseInt(req.query.userId),parseInt(req.query.postId),req.query.name,((status)=>{
+  DataHandler.applyPost(parseInt(req.query.userId),parseInt(req.query.postId),req.query.name,req.query.sop,((status)=>{
     res.send(status)
   }))
 })
