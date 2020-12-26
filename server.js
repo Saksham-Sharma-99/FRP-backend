@@ -76,12 +76,12 @@ app.get(Constants.Routes.checkUser,(req,res)=>{
 })
 app.get(Constants.Routes.files ,(req,res)=>{
   console.log(req.query.name)
-  var file = fs.createReadStream(__dirname+'/public/modules/files/'+req.query.name);
-var stat = fs.statSync(__dirname+'/public/modules/files/'+req.query.name);
-res.setHeader('Content-Length', stat.size);
-res.setHeader('Content-Type', 'application/pdf');
-res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
-file.pipe(res);
+  var file = fs.createReadStream(__dirname+'/public/files/'+req.query.name);
+  var stat = fs.statSync(__dirname+'/public/files/'+req.query.name);
+  res.setHeader('Content-Length', stat.size);
+  res.setHeader('Content-Type', 'application/pdf');
+  res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+  file.pipe(res);
 })
 
 
