@@ -76,9 +76,7 @@ app.get(Constants.Routes.checkUser,(req,res)=>{
 })
 app.get(Constants.Routes.files ,(req,res)=>{
   console.log(req.query.name)
-  var data =fs.readFileSync(__dirname+'/public/files/'+req.query.name);
-  res.contentType("application/pdf");
-  res.send(data);
+  res.sendFile(__dirname +'/public/files/'+req.query.name)
 })
 
 
