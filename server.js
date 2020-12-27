@@ -78,6 +78,10 @@ app.get(Constants.Routes.files ,(req,res)=>{
   console.log(req.query.name)
   res.sendFile(__dirname +'/public/files/'+req.query.name)
 })
+app.get(Constants.Routes.images ,(req,res)=>{
+  console.log(req.query.name)
+  res.sendFile(__dirname +'/public/images/'+req.query.name)
+})
 
 
 

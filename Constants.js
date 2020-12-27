@@ -19,6 +19,7 @@ const Constants = {
         uploadFile : (port == 5000) ? "/api/uploadFile" : "/uploadFile",
         passStatus : (port == 5000) ? "/api/pathStatus" : "/pathStatus",
         files : (port == 5000) ? "/api/files" : "/files",
+        images : (port == 5000) ? "/api/images" : "/images",
         port : port,
     }
 
