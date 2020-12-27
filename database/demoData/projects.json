@@ -53,24 +53,28 @@
             [
               {
                 "id" : 1,
+                "name" : "Damon",
                 "image" : "damon.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
                 "branch":"IMSC"
               },
               {
                 "id" : 2,
+                "name" : "Blake",
                 "image" : "blake.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
                 "branch":"Metallurgy and Material Science"
               },
               {
                 "id" : 3,
+                "name" : "Zyan",
                 "image" : "zyan.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
                 "branch":"Civil"
               },
               {
                 "id" : 4,
+                "name" : "Kendal",
                 "image" : "kendal.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
                 "branch":"Mechanical"
