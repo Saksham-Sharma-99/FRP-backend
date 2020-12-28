@@ -139,22 +139,22 @@
                 "branch":"IMSC"
               },
               {
-                "id" : 2,
-                "image" : "blake.jpg",
+                "id" : 1,
+                "image" : "damon.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
-                "branch":"Metallurgy and Material Science"
+                "branch":"IMSC"
               },
               {
-                "id" : 3,
-                "image" : "zyan.jpg",
+                "id" : 1,
+                "image" : "damon.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
-                "branch":"Civil"
+                "branch":"IMSC"
               },
               {
-                "id" : 4,
-                "image" : "kendal.jpg",
+                "id" : 1,
+                "image" : "damon.jpg",
                 "quote":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sapien id risus elementum consectetur. Nullam sagittis odio ut tellus ultricies, sed feugiat lorem iaculis. Sed vestibulum placerat massa id aliquet. Suspendisse ornare libero sit amet ante commodo convallis. Nulla laoreet sagittis suscipit. Fusce nec dolor ac neque malesuada tincidunt.",
-                "branch":"Mechanical"
+                "branch":"IMSC"
               }
             ]
           },
