@@ -1,11 +1,11 @@
 {
     "projects":[
         {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 1,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "caltech-new-logo.png",
               "name" : "CalTech-SURF",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -83,11 +83,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 3,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "135.png",
               "name" : "CHARPAK Lab Scholarship Programme - France",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -165,11 +165,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 5,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "mobile-ist-logo.png",
               "name" : "ISternship Summer Student Program ,IST Austria",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -247,11 +247,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 2,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "cern-logo.png",
               "name" : "CERN Summer Student Programme 2021-Switzerland",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -329,11 +329,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 4,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "logo.png",
               "name" : "National Tsing Hua University, Taiwan",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -411,11 +411,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 6,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "logo.svg",
               "name" : "TEEP: (Taiwan Experience Education Program)",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -493,11 +493,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 7,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "Swiss.PNG",
               "name" : "ThinkSwiss Research Scholarships",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -575,11 +575,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 8,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "smu.PNG",
               "name" : "SMU Global Summer Programme 2021",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -657,11 +657,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 9,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "ius2.PNG",
               "name" : "IUSSTF - Viterbi Virtual Internship 2021",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -739,11 +739,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 10,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "charpak.PNG",
               "name" : "Charpak Exchange Scholarship",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -821,11 +821,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 11,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "daad.PNG",
               "name" : "DAAD-Wise Scholarship",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
@@ -903,11 +903,11 @@
             ]
           },
           {
-            "createdAt" : "20/20/20",
+            "createdAt" : "19/02/21",
             "postId" : 12,
             "data" :
             {
-              "logo" : "https://www.iitr.ac.in/departments/CSE/uploads/Misc/IITR_logo/IITR_new_logo_color.jpg",
+              "logo" : "ntu.PNG",
               "name" : "NTU-India Connect Research Internship Programme",
               "deadline" : "Sic mundus",
               "cg" : "creatus",
