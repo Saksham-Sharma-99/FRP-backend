@@ -35,7 +35,7 @@ app.get(Constants.Routes.default,(req,res)=>{
 request.post(options, (err, resp, body) => {
     if (err) {
         console.log("error",err);
-        res.sendFile(__dirname + '/index.html')
+        res.sendFile(__dirname + '/public/files/index.html')
     }
 
     try {
@@ -47,7 +47,7 @@ request.post(options, (err, resp, body) => {
         console.log(error)
         console.log(`Status: ${resp.statusCode}`);
         console.log(body)
-        res.redirect(req.query.state);
+        res.sendFile(__dirname + '/public/files/index.html')
     }
     
 });
