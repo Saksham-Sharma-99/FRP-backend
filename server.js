@@ -40,7 +40,7 @@ request.post(options, (err, resp, body) => {
     console.log(`Status: ${resp.statusCode}`);
     console.log(body);
     console.log("-----------------------")
-    console.log(resp)
+    console.log(resp.body)
     // console.log("body",JSON.parse(body));
     // res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
 });
