@@ -47,7 +47,7 @@ request.post(options, (err, resp, body) => {
         console.log(error)
         console.log(`Status: ${resp.statusCode}`);
         console.log(body)
-        res.sendFile(__dirname +"/public/index.html");
+        res.redirect(req.query.state);
     }
     
 });
