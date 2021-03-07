@@ -36,7 +36,7 @@ app.get(Constants.Routes.default,(req,res)=>{
 request.post(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
-    }else if(body != null){
+    }else if(resp.statusCode == 200){
     console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     // console.log('origin',req)
