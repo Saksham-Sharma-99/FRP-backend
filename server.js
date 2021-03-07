@@ -35,7 +35,7 @@ app.get(Constants.Routes.default,(req,res)=>{
 request.post(options, (err, resp, body) => {
     if (err) {
         console.log("error",err);
-        res.sendFile(__dirname + '/index.html')
+        // res.sendFile(__dirname + '/index.html')
     }
 
     try {
