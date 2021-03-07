@@ -5,6 +5,7 @@ const fs = require('fs')
 const fileUpload = require('express-fileupload');
 const request = require('request');
 const morgan = require('morgan');
+const e = require("express");
 const DataHandler = require(__dirname+'/database/dataHandler.js')
 const Constant = require(__dirname+"/Constants.js")
 const Constants = Constant.Constants
@@ -35,11 +36,14 @@ app.get(Constants.Routes.default,(req,res)=>{
 request.post(options, (err, resp, body) => {
     if (err) {
         return console.log("error",err);
-    }
+    }else if(body != null){
     console.log(`Status: ${resp.statusCode}`);
     console.log("body",JSON.parse(body));
     // console.log('origin',req)
     res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
+    }else{
+      res.sendFile(__dirname +'/public/index.html');
+    }
 });
 })
 
