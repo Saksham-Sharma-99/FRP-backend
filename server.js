@@ -35,12 +35,14 @@ app.get(Constants.Routes.default,(req,res)=>{
 request.post(options, (err, resp, body) => {
     if (err) {
         console.log("error",err);
-        res.sendFile(__dirname + '/public/index.html');
+        res.sendFile(__dirname + '/index.html')
     }
     console.log(`Status: ${resp.statusCode}`);
-    console.log("body",JSON.parse(body));
-    // console.log('origin',req)
-    res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
+    console.log(body);
+    console.log("-----------------------")
+    console.log(resp)
+    // console.log("body",JSON.parse(body));
+    // res.redirect(`${req.query.state}?token=${JSON.parse(body).access_token}&refresh_token=${JSON.parse(body).refresh_token}`)
 });
 })
 
