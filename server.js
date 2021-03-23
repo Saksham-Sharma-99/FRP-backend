@@ -25,7 +25,7 @@ app.get(Constants.Routes.default,(req,res)=>{
   var redirect_uri = (req.query.state == "http://localhost:3000/") ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
 
   const options = {
-    url: 'https://internet.channeli.in/open_auth/token/',
+    url: 'https://channeli.in/open_auth/token/',
     headers:{
       'content-type': 'application/x-www-form-urlencoded',
       'cache-control': "no-cache",
