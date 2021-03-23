@@ -10,7 +10,7 @@ const Constants = Constant.Constants
 function demoUser(token,refresh_token,callback){
   const User = demoProfiles.profiles.filter((user)=>user.personalData.userId == 2)
   const options = {
-    url: 'https://internet.channeli.in/open_auth/get_user_data/',
+    url: 'https://channeli.in/open_auth/get_user_data/',
     headers:{
       'Authorization' : `Bearer ${token}`
     }};
@@ -105,7 +105,7 @@ function checkUser(refresh_token,state,callback){
     var redirect_uri = (state == "http://localhost:3000/") ? "https://frp-backend.herokuapp.com/" : "http://ec2-13-235-76-138.ap-south-1.compute.amazonaws.com/api/"
 
     const options = {
-      url: 'https://internet.channeli.in/open_auth/token/',
+      url: 'https://channeli.in/open_auth/token/',
       headers:{
         'content-type': 'application/x-www-form-urlencoded',
         'cache-control': "no-cache",
